@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>brainlessitc — mobile app studio</title>
+<style>
+  :root{
+    --bg: #0B0E14;
+    --bg-soft: #10141D;
+    --line: #1E2430;
+    --text: #E8E6F0;
+    --text-dim: #8A8FA3;
+    --accent: #7C5CFF;
+    --accent-2: #3DDC97;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .mono{
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  .wrap{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* NAV */
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(11,14,20,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .logo .mark{ width: 26px; height: 26px; display:block; }
+  .logo .strike{ position: relative; color: var(--text-dim); }
+  .logo .strike::after{
+    content:"";
+    position:absolute;
+    left:-2px; right:-2px; top:50%;
+    height:1px;
+    background: var(--text-dim);
+  }
+  nav ul{
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  nav ul a:hover{ color: var(--text); }
+  .nav-cta{
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 100px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+  .nav-links-mobile{ display:none; }
+
+  /* HERO */
+  header.hero{
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .eyebrow{
+    font-size: 13px;
+    color: var(--accent-2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow .dot{
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 0 4px rgba(61,220,151,0.15);
+  }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  h1.headline{
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1.05;
+  }
+  h1.headline .accent{ color: var(--accent); }
+  .sub{
+    margin-top: 22px;
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 46ch;
+  }
+  .hero-actions{
+    margin-top: 34px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary, .btn-ghost{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 100px;
+  }
+  .btn-primary{
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover{ background: #6a4ce0; }
+  .btn-ghost{
+    border: 1px solid var(--line);
+    color: var(--text);
+  }
+  .btn-ghost:hover{ border-color: var(--text-dim); }
+
+  /* signature brain-circuit mark */
+  .brain-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .brain-svg{
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+  }
+  .brain-svg .circuit{
+    stroke: var(--accent);
+    stroke-width: 1.4;
+    fill: none;
+    opacity: 0.55;
+  }
+  .brain-svg .outline{
+    stroke: var(--text);
+    stroke-width: 1.6;
+    fill: none;
+  }
+  .brain-svg .node{
+    fill: var(--accent-2);
+  }
+  .brain-svg .pulse{
+    fill: none;
+    stroke: var(--accent-2);
+    stroke-width: 1.6;
+    stroke-dasharray: 6 10;
+    animation: dash 3.2s linear infinite;
+  }
+  @keyframes dash{ to{ stroke-dashoffset: -160; } }
+  .brain-svg .node{
+    animation: blink 2.4s ease-in-out infinite;
+  }
+  .brain-svg .node:nth-child(2){ animation-delay: .4s; }
+  .brain-svg .node:nth-child(3){ animation-delay: .8s; }
+  .brain-svg .node:nth-child(4){ animation-delay: 1.2s; }
+  @keyframes blink{
+    0%, 100%{ opacity: .4; }
+    50%{ opacity: 1; }
+  }
+
+  /* STRIP */
+  .strip{
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-soft);
+  }
+  .strip .wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 32px;
+    font-size: 13px;
+    color: var(--text-dim);
+    flex-wrap: wrap;
+    gap: 10px 24px;
+  }
+  .strip span b{ color: var(--text); font-weight: 700; }
+
+  /* SECTION HEADERS */
+  section{ padding: 88px 0; border-bottom: 1px solid var(--line); }
+  .sec-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .sec-head h2{ font-size: 32px; }
+  .sec-head p{ color: var(--text-dim); font-size: 15px; max-width: 38ch; }
+
+  /* WORK GRID */
+  .work-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .work-card{
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color .2s, transform .2s;
+  }
+  .work-card:hover{
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+  .work-card .icon{
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(124,92,255,0.12);
+    margin-bottom: 22px;
+    font-size: 18px;
+  }
+  .work-card h3{ font-size: 17px; margin-bottom: 8px; }
+  .work-card p{ font-size: 14px; color: var(--text-dim); }
+  .work-card .tag{
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 11px;
+    color: var(--accent-2);
+    letter-spacing: 0.06em;
+  }
+
+  /* PROCESS */
+  .process-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .process-step{
+    padding: 28px 24px;
+    border-right: 1px solid var(--line);
+    background: var(--bg-soft);
+  }
+  .process-step:last-child{ border-right: none; }
+  .process-step .num{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .process-step h3{ font-size: 15px; margin-bottom: 8px; }
+  .process-step p{ font-size: 13px; color: var(--text-dim); }
+
+  /* CONTACT */
+  .contact-box{
+    background: linear-gradient(135deg, rgba(124,92,255,0.14), rgba(61,220,151,0.08));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 56px;
+    text-align: center;
+  }
+  .contact-box h2{ font-size: 30px; margin-bottom: 12px; }
+  .contact-box p{ color: var(--text-dim); margin-bottom: 30px; }
+  .contact-email{
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-2);
+    border-bottom: 1px solid transparent;
+  }
+  .contact-email:hover{ border-color: var(--accent-2); }
+
+  footer{
+    padding: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-dim);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .brain-wrap{ order: -1; }
+    .work-grid{ grid-template-columns: 1fr; }
+    .process-list{ grid-template-columns: 1fr; }
+    .process-step{ border-right: none; border-bottom: 1px solid var(--line); }
+    nav ul{ display: none; }
+    .strip .wrap{ flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .brain-svg .pulse{ animation: none; }
+    .brain-svg .node{ animation: none; opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/>
+        <path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="strike">brainless</span>itc
+    </div>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Start a project</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> iOS &amp; Android studio</div>
+      <h1 class="headline">The name is a joke.<br>The <span class="accent">apps</span> aren't.</h1>
+      <p class="sub">brainlessitc is a small mobile app development shop that designs, builds, and ships native and cross-platform apps — from first sketch to App Store approval.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start a project</a>
+        <a href="#work" class="btn-ghost">See the work</a>
+      </div>
+    </div>
+    <div class="brain-wrap">
+      <svg class="brain-svg" viewBox="0 0 300 260" fill="none">
+        <path class="outline" d="M150 30c-38 0-64 24-64 56 0 16 6 26 6 40 0 30 26 52 58 52s58-22 58-52c0-14 6-24 6-40 0-32-26-56-64-56z"/>
+        <path class="circuit" d="M110 70h20v-16h24"/>
+        <path class="circuit" d="M190 70h-20v-16h-24"/>
+        <path class="circuit" d="M96 110h30v20h-20v18"/>
+        <path class="circuit" d="M204 110h-30v20h20v18"/>
+        <path class="circuit" d="M150 60v30"/>
+        <path class="pulse" d="M96 130h30l8 24 10-48 10 34 6-14h40"/>
+        <circle class="node" cx="106" cy="110" r="4"/>
+        <circle class="node" cx="194" cy="110" r="4"/>
+        <circle class="node" cx="150" cy="150" r="4"/>
+        <circle class="node" cx="150" cy="60" r="4"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span><b>40+</b> apps shipped</span>
+    <span><b>iOS · Android · Flutter · React Native</b></span>
+    <span><b>4.7★</b> avg. store rating</span>
+    <span><b>2–10 wk</b> typical build</span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>What we build</h2>
+      <p>Full-cycle mobile development — no hand-offs, no guesswork.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="icon">📱</div>
+        <h3>Native iOS &amp; Android</h3>
+        <p>Swift and Kotlin apps built for performance, platform conventions, and long-term maintainability.</p>
+        <span class="tag mono">SWIFT / KOTLIN</span>
+      </div>
+      <div class="work-card">
+        <div class="icon">⚡</div>
+        <h3>Cross-platform</h3>
+        <p>Flutter and React Native builds that ship to both stores from a single, well-structured codebase.</p>
+        <span class="tag mono">FLUTTER / RN</span>
+      </div>
+      <div class="work-card">
+        <div class="icon">🎨</div>
+        <h3>Product &amp; UI design</h3>
+        <p>Wireframes through polished UI kits, designed around how people actually hold and use their phones.</p>
+        <span class="tag mono">FIGMA</span>
+      </div>
+      <div class="work-card">
+        <div class="icon">🔌</div>
+        <h3>Backend &amp; APIs</h3>
+        <p>Auth, payments, push notifications, and admin dashboards to run the app once it's live.</p>
+        <span class="tag mono">REST / FIREBASE</span>
+      </div>
+      <div class="work-card">
+        <div class="icon">🚀</div>
+        <h3>Store launch</h3>
+        <p>App Store and Play Store submissions, listing copy, screenshots, and review handling.</p>
+        <span class="tag mono">ASO</span>
+      </div>
+      <div class="work-card">
+        <div class="icon">🛠️</div>
+        <h3>Maintenance</h3>
+        <p>OS updates, bug fixes, and new features for apps already live in the wild.</p>
+        <span class="tag mono">SUPPORT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How a project runs</h2>
+      <p>Four stages, one team, no surprises.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-step">
+        <span class="num">01</span>
+        <h3>Scope</h3>
+        <p>We map features, screens, and timeline before a line of code is written.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">02</span>
+        <h3>Design</h3>
+        <p>Clickable prototypes you can react to and revise early.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">03</span>
+        <h3>Build</h3>
+        <p>Weekly builds on your device so you're never waiting on a surprise.</p>
+      </div>
+      <div class="process-step">
+        <span class="num">04</span>
+        <h3>Ship</h3>
+        <p>Store submission, launch support, and a handover you can maintain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Have an app in mind?</h2>
+      <p>Tell us what you're building — we'll reply with a scope and timeline.</p>
+      <a class="contact-email mono" href="mailto:hello@brainlessitc.com">hello@brainlessitc.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+    <span>© 2026 brainlessitc</span>
+    <span class="mono">Built for iOS &amp; Android</span>
+  </div>
+</footer>
+
+</body>
+</html>
