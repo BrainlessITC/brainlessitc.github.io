@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting started — Request Product Quote for WooCommerce</title>
+<meta name="description" content="Install BrainlessITC Request Product Quote for WooCommerce, set up the quote page and send your first quote request.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./" aria-current="page">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Request Product Quote</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm" aria-current="page">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="managing-quotes.htm">Managing quotes</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="developers.htm">Developers</a></li>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Request Product Quote</a> / Getting started</div>
+    <h1>Getting started</h1>
+    <p class="lead">Install the plugin, check three settings and send yourself a test request — about five minutes.</p>
+
+    <div class="toc"><b>On this page</b>
+      <ol>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#after-activation">After activation</a></li>
+        <li><a href="#setup">Five-minute setup</a></li>
+        <li><a href="#customer">What customers see</a></li>
+        <li><a href="#test">Send a test request</a></li>
+        <li><a href="#next">Next steps</a></li>
+      </ol>
+    </div>
+
+    <h2 id="install">Install</h2>
+    <p>Make sure <strong>WooCommerce 8.0 or newer</strong> is installed and active first. Then:</p>
+    <ol class="steps">
+      <li>In your WordPress dashboard go to <span class="path">Plugins › Add New Plugin</span>.</li>
+      <li>Search for <strong>BrainlessITC Request Product Quote</strong>.</li>
+      <li>Click <strong>Install Now</strong>, then <strong>Activate</strong>.</li>
+    </ol>
+    <p>Prefer a manual install? Download the zip from the <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">WordPress.org plugin page</a> and upload it in <span class="path">Plugins › Add New Plugin › Upload Plugin</span>.</p>
+
+    <h2 id="after-activation">After activation</h2>
+    <ul>
+      <li>A new <strong>Quotes</strong> menu appears in your dashboard with <em>All Quotes</em>, <em>Settings</em> and <em>Add-Ons</em>.</li>
+      <li>A page called <strong>View Quote</strong> (<code>/view-quote/</code>) is created for you. It contains the <em>Request a Quote</em> block, which shows the customer's quote list and the request form.</li>
+      <li>"Add to quote" buttons are switched on for all products, on product pages and in product lists.</li>
+      <li>You may see a screen asking whether you'd like to share non-sensitive usage data to help improve the plugin. It is optional — <strong>Skip</strong> works just as well. See <a href="faq.htm#data">What data is shared?</a></li>
+    </ul>
+    <div class="callout">
+      <p>Prices and Add to cart stay visible by default. Quotes work <em>next to</em> normal purchases until you turn on catalog mode.</p>
+    </div>
+
+    <h2 id="setup">Five-minute setup</h2>
+    <h3>1. Check the quote page</h3>
+    <p>Go to <span class="path">Quotes › Settings › General</span>. <strong>Quote page</strong> should show <em>View Quote</em>. If you prefer your own page, add the <em>Request a Quote</em> block (or the <code>[blraq_quote]</code> shortcode) to it and select it here.</p>
+
+    <h3>2. Choose where buttons appear</h3>
+    <p>In <span class="path">Quotes › Settings › Products &amp; Buttons</span>:</p>
+    <ul>
+      <li><strong>Enable quotes for</strong> — all products, or only products you enable one by one.</li>
+      <li><strong>Product pages</strong> and <strong>Shop &amp; category pages</strong> — where the button is shown.</li>
+      <li><strong>Catalog mode</strong> — hide prices (optionally with text such as "Price on request") and/or hide Add to cart.</li>
+    </ul>
+    <figure>
+      <img src="images/settings-products-buttons.jpg" alt="Products and Buttons settings tab" loading="lazy" width="1568" height="733">
+      <figcaption>Quotes › Settings › Products &amp; Buttons.</figcaption>
+    </figure>
+
+    <h3>3. Give customers a way back to their list</h3>
+    <p>Add the <strong>Quote List Link</strong> block to your header (Appearance › Editor › Header) or menu. It links to the quote page and shows how many products are in the list. On classic themes use the shortcode:</p>
+    <pre><code>[blraq_quote_link label="Quote" show_count="yes"]</code></pre>
+
+    <h3>4. Review the emails</h3>
+    <p>Open <span class="path">WooCommerce › Settings › Emails</span>. You'll find <em>New quote request</em> (to you), <em>Quote request received</em> and <em>Quote reply</em> (to the customer). Edit the subject, heading and text, and use WooCommerce's preview to see the result.</p>
+
+    <h2 id="customer">What customers see</h2>
+    <figure>
+      <img src="images/product-button.jpg" alt="Product page with the Add to quote button" loading="lazy" width="1568" height="778">
+      <figcaption>On a product page the button sits next to Add to cart. For variable products customers choose options first.</figcaption>
+    </figure>
+    <p>After clicking <strong>Add to quote</strong>, a short message with a <em>View quote</em> link appears under the button. (You can send customers straight to the quote page instead: <span class="path">General › After adding a product</span>.)</p>
+    <figure>
+      <img src="images/quote-page.jpg" alt="Quote list and request form" loading="lazy" width="1568" height="778">
+      <figcaption>The View Quote page: change quantities, remove products, fill in the form and send.</figcaption>
+    </figure>
+    <p>After sending, the customer sees your confirmation message with the quote number and the requested products, and receives a confirmation email.</p>
+
+    <h2 id="test">Send a test request</h2>
+    <ol class="steps">
+      <li>Open your shop in a private / incognito window (so you're a guest).</li>
+      <li>Add one or two products to the quote and open <em>View Quote</em>.</li>
+      <li>Fill in the form with an email address you can check and send it.</li>
+      <li>Back in the dashboard, open <span class="path">Quotes › All Quotes</span> — your request is there with the status <em>New</em>.</li>
+    </ol>
+    <div class="callout warn"><b class="label">No email arrived?</b>
+      <p>The plugin sends emails through WooCommerce and WordPress. If none of your store emails arrive, configure an SMTP plugin for your site — the quote is saved in the dashboard either way.</p>
+    </div>
+
+    <h2 id="next">Next steps</h2>
+    <ul>
+      <li><a href="settings.htm">Settings</a> — every option explained.</li>
+      <li><a href="managing-quotes.htm">Managing quotes</a> — statuses, notes and replying to customers.</li>
+      <li><a href="pro.htm">Pro add-on</a> — send priced proposals customers can accept and pay online.</li>
+    </ul>
+
+    <div class="next-prev">
+      <a href="./"><small>Previous</small><b>← Overview</b></a>
+      <a class="next" href="settings.htm"><small>Next</small><b>Settings →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

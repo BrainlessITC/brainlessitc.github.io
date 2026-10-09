@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developers — Request Product Quote for WooCommerce</title>
+<meta name="description" content="Developer reference for BrainlessITC Request Product Quote for WooCommerce: shortcodes, blocks, template overrides, actions, filters and webhooks.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./" aria-current="page">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Request Product Quote</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="managing-quotes.htm">Managing quotes</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="developers.htm" aria-current="page">Developers</a></li>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Request Product Quote</a> / Developers</div>
+    <h1>Developers</h1>
+    <p class="lead">Shortcodes, blocks, template overrides, hooks and webhooks. All hooks and functions use the <code>blraq</code> prefix.</p>
+
+    <div class="toc"><b>On this page</b>
+      <ol>
+        <li><a href="#shortcodes">Shortcodes</a></li>
+        <li><a href="#blocks">Blocks</a></li>
+        <li><a href="#templates">Template overrides</a></li>
+        <li><a href="#functions">Helper functions</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#actions">Actions</a></li>
+        <li><a href="#filters">Filters</a></li>
+        <li><a href="#pro-hooks">Pro hooks</a></li>
+        <li><a href="#webhooks">Webhooks (Pro)</a></li>
+        <li><a href="#data">Stored data</a></li>
+      </ol>
+    </div>
+
+    <h2 id="shortcodes">Shortcodes</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Shortcode</th><th>Output</th></tr></thead>
+      <tbody>
+        <tr><td><code>[blraq_quote]</code></td><td>The quote list and request form — same as the <em>Request a Quote</em> block. Place it on the page selected as <em>Quote page</em>.</td></tr>
+        <tr><td><code>[blraq_quote_link label="Quote" show_count="yes"]</code></td><td>A link to the quote page. <code>label</code> sets the text (default "Quote"); <code>show_count</code> adds the number of products in the list (<code>yes</code> / <code>no</code>).</td></tr>
+        <tr><td><code>[blraq_button id="123"]</code></td><td>An "Add to quote" button for product <code>123</code>. Without <code>id</code> it uses the current product.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="blocks">Blocks</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Block</th><th>Name</th><th>Options</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Request a Quote</strong></td><td><code>brainlessitc-request-product-quote-for-woocommerce/quote</code></td><td>Quote list and request form. Supports wide / full alignment.</td></tr>
+        <tr><td><strong>Quote List Link</strong></td><td><code>brainlessitc-request-product-quote-for-woocommerce/quote-link</code></td><td><code>label</code>, <code>showCount</code>, plus text color, background color and font size.</td></tr>
+      </tbody>
+    </table></div>
+    <p>"Add to quote" buttons are added automatically to the WooCommerce <em>Add to Cart Form</em>, <em>Add to Cart with Options</em> and <em>Product Button</em> blocks (used by Product Collection), and to classic templates.</p>
+
+    <h2 id="templates">Template overrides</h2>
+    <p>Copy a template from the plugin's <code>templates/</code> folder into your theme, keeping the sub-folder, and edit the copy:</p>
+    <pre><code>wp-content/plugins/brainlessitc-request-product-quote-for-woocommerce/templates/quote/form.php
+→ wp-content/themes/your-theme/brainlessitc-request-product-quote-for-woocommerce/quote/form.php</code></pre>
+    <p>Pro templates are overridden in the same theme folder.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Template</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td><code>quote/basket.php</code></td><td>The quote list on the quote page</td></tr>
+        <tr><td><code>quote/form.php</code></td><td>The request form</td></tr>
+        <tr><td><code>quote/empty.php</code></td><td>Empty quote list</td></tr>
+        <tr><td><code>quote/login-required.php</code></td><td>Shown to guests when guest requests are off</td></tr>
+        <tr><td><code>quote/received.php</code></td><td>Confirmation after sending</td></tr>
+        <tr><td><code>emails/admin-new-quote.php</code>, <code>customer-quote-received.php</code>, <code>customer-quote-reply.php</code></td><td>HTML emails (plain-text versions in <code>emails/plain/</code>)</td></tr>
+        <tr><td><code>emails/quote-items.php</code>, <code>emails/quote-details.php</code></td><td>Products table and customer details used in emails and pages</td></tr>
+        <tr><td><code>quote/proposal.php</code> <span class="badge pro">PRO</span></td><td>Customer view of a proposal</td></tr>
+        <tr><td><code>myaccount/quotes.php</code> <span class="badge pro">PRO</span></td><td>My Account › Quotes list</td></tr>
+        <tr><td><code>pdf/quote.php</code> <span class="badge pro">PRO</span></td><td>PDF quote (rendered by Dompdf — keep to tables and inline CSS)</td></tr>
+        <tr><td><code>emails/customer-proposal.php</code>, <code>customer-reminder.php</code>, <code>admin-quote-decision.php</code> <span class="badge pro">PRO</span></td><td>Pro emails (plain versions in <code>emails/plain/</code>)</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="functions">Helper functions</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Function</th><th>Returns</th></tr></thead>
+      <tbody>
+        <tr><td><code>blraq()</code></td><td>The plugin instance (services such as <code>-&gt;settings</code>, <code>-&gt;quotes</code>, <code>-&gt;basket</code>, <code>-&gt;products</code>).</td></tr>
+        <tr><td><code>blraq_get_quote( $id )</code></td><td>A <code>Quote</code> object, or <code>null</code>.</td></tr>
+        <tr><td><code>blraq_get_setting( $key, $fallback = null )</code></td><td>A setting value, e.g. <code>blraq_get_setting( 'hide_price' )</code> → <code>'yes'</code> / <code>'no'</code>.</td></tr>
+        <tr><td><code>blraq_get_quote_page_url()</code></td><td>URL of the quote page.</td></tr>
+        <tr><td><code>blraq_is_quote_page()</code></td><td>Whether the current request is the quote page.</td></tr>
+        <tr><td><code>blraq_get_template( $name, $args )</code></td><td>Loads a template (theme overrides first).</td></tr>
+      </tbody>
+    </table></div>
+    <p>Useful <code>Quote</code> methods: <code>get_id()</code>, <code>get_number()</code>, <code>get_status()</code>, <code>get_status_label()</code>, <code>get_customer_name()</code>, <code>get_customer_email()</code>, <code>get_items()</code>, <code>get_form_data()</code>, <code>get_field( $key )</code>, <code>get_total()</code>, <code>get_meta( $key )</code> and <code>get_admin_url()</code>.</p>
+
+    <h2 id="examples">Examples</h2>
+    <p>Add these snippets to a small custom plugin or with a code-snippets plugin.</p>
+    <h3>Let shop managers without full WooCommerce rights manage quotes</h3>
+    <pre><code>add_filter( 'blraq_manage_capability', function () {
+    return 'edit_shop_orders'; // Default: manage_woocommerce.
+} );</code></pre>
+    <h3>No quotes for one category</h3>
+    <pre><code>add_filter( 'blraq_is_product_quotable', function ( $quotable, $product ) {
+    $id = $product-&gt;get_parent_id() ? $product-&gt;get_parent_id() : $product-&gt;get_id();
+    if ( has_term( 'gift-cards', 'product_cat', $id ) ) {
+        return false;
+    }
+    return $quotable;
+}, 10, 2 );</code></pre>
+    <h3>Add a "VAT number" field to the form</h3>
+    <pre><code>add_filter( 'blraq_form_fields', function ( $fields ) {
+    $fields['vat_number'] = array(
+        'type'     =&gt; 'text',
+        'label'    =&gt; __( 'VAT number', 'my-textdomain' ),
+        'required' =&gt; false,
+        'class'    =&gt; array( 'form-row-wide' ),
+        'priority' =&gt; 55, // Company is 50, Message 60.
+    );
+    return $fields;
+} );</code></pre>
+    <p>The value is sanitized, validated and stored with the quote like the built-in fields, and shown on the quote screen and in emails.</p>
+    <h3>Send new requests to your CRM</h3>
+    <pre><code>add_action( 'blraq_quote_created', function ( $quote_id, $quote ) {
+    wp_remote_post( 'https://crm.example.com/api/leads', array(
+        'body' =&gt; array(
+            'name'  =&gt; $quote-&gt;get_customer_name(),
+            'email' =&gt; $quote-&gt;get_customer_email(),
+            'quote' =&gt; $quote-&gt;get_number(),
+        ),
+    ) );
+}, 10, 2 );</code></pre>
+    <h3>Prefix quote numbers</h3>
+    <pre><code>add_filter( 'blraq_quote_number', function ( $number, $quote ) {
+    return 'Q-' . str_pad( $number, 5, '0', STR_PAD_LEFT ); // Q-00058
+}, 10, 2 );</code></pre>
+    <h3>React to status changes</h3>
+    <pre><code>add_action( 'blraq_quote_status_changed', function ( $quote, $old_status, $new_status ) {
+    if ( 'accepted' === $new_status ) {
+        // e.g. notify your sales team.
+    }
+}, 10, 3 );
+// Or listen to one status only: blraq_quote_status_{status}, e.g. blraq_quote_status_accepted ( $quote, $old_status ).</code></pre>
+
+    <h2 id="actions">Actions</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Action</th><th>Arguments</th><th>Fires when</th></tr></thead>
+      <tbody>
+        <tr><td><code>blraq_loaded</code></td><td><code>$plugin</code></td><td>The plugin has booted.</td></tr>
+        <tr><td><code>blraq_added_to_basket</code></td><td><code>$key, $product, $quantity</code></td><td>A product was added to a quote list.</td></tr>
+        <tr><td><code>blraq_basket_updated</code></td><td><code>$basket</code></td><td>The quote list changed.</td></tr>
+        <tr><td><code>blraq_before_create_quote</code></td><td><code>$quote, $basket</code></td><td>Before a submitted request is saved.</td></tr>
+        <tr><td><code>blraq_quote_created</code></td><td><code>$quote_id, $quote</code></td><td>A new quote request was saved.</td></tr>
+        <tr><td><code>blraq_before_save_quote</code> / <code>blraq_quote_saved</code></td><td><code>$quote, $is_new</code></td><td>Before / after any quote is saved.</td></tr>
+        <tr><td><code>blraq_quote_status_changed</code></td><td><code>$quote, $old_status, $new_status</code></td><td>The status changed.</td></tr>
+        <tr><td><code>blraq_quote_status_{status}</code></td><td><code>$quote, $old_status</code></td><td>The quote moved to <code>{status}</code>.</td></tr>
+        <tr><td><code>blraq_quote_note_added</code></td><td><code>$note_id, $quote_id, $type</code></td><td>A note was added (<code>$type</code>: <code>private</code>, <code>customer</code>, <code>incoming</code> or <code>system</code>).</td></tr>
+        <tr><td><code>blraq_customer_reply_sent</code></td><td><code>$sent, $quote</code></td><td>A reply email was attempted.</td></tr>
+        <tr><td><code>blraq_before_delete_quote</code> / <code>blraq_quote_deleted</code></td><td><code>$quote</code> / <code>$id</code></td><td>Before / after a quote is deleted.</td></tr>
+        <tr><td><code>blraq_validate_submission</code></td><td><code>$errors, $posted, $data</code></td><td>Validate the whole request; add errors to the <code>WP_Error</code>. <code>$posted</code> is already sanitized.</td></tr>
+        <tr><td><code>blraq_before_form_fields</code> / <code>blraq_after_form_fields</code></td><td>—</td><td>Print extra markup around the form fields.</td></tr>
+        <tr><td><code>blraq_basket_item_after_name</code></td><td><code>$item, $key</code></td><td>Under a product name in the quote list.</td></tr>
+        <tr><td><code>blraq_basket_form_updated</code></td><td><code>$item_meta</code></td><td>The quote list form was posted; extra item fields (sanitized) keyed by item key.</td></tr>
+        <tr><td><code>blraq_ajax_update_item</code></td><td><code>$key, $meta</code></td><td>A quote list item was updated via AJAX; <code>$meta</code> is sanitized.</td></tr>
+        <tr><td><code>blraq_after_quote_received</code></td><td><code>$quote</code></td><td>Below the confirmation after sending.</td></tr>
+        <tr><td><code>blraq_quote_item_meta</code></td><td><code>$item, $quote, $sent_to_admin</code></td><td>Under a product in quote tables (emails, pages).</td></tr>
+        <tr><td><code>blraq_admin_quote_main</code> / <code>_sidebar</code> / <code>_actions</code> / <code>_info</code></td><td><code>$quote</code></td><td>Add boxes and controls to the quote screen.</td></tr>
+        <tr><td><code>blraq_admin_before_save_quote</code> / <code>blraq_admin_save_quote</code></td><td><code>$quote</code></td><td>The quote screen is being saved (nonce and capability already verified). Read and sanitize your own fields.</td></tr>
+        <tr><td><code>blraq_product_panel</code> / <code>blraq_save_product_fields</code></td><td>— / <code>$product</code></td><td>Extend the product's Request a Quote tab.</td></tr>
+        <tr><td><code>blraq_settings_saved</code></td><td><code>$tab, $updates</code></td><td>A settings tab was saved.</td></tr>
+        <tr><td><code>blraq_quote_page_override</code></td><td>—</td><td>Print replacement quote-page content when <code>blraq_has_quote_page_override</code> returns true. Escape everything you print.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="filters">Filters</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Filter</th><th>Arguments</th><th>Filters</th></tr></thead>
+      <tbody>
+        <tr><td><code>blraq_is_product_quotable</code></td><td><code>$quotable, $product</code></td><td>Whether a product can be quoted.</td></tr>
+        <tr><td><code>blraq_hide_price</code></td><td><code>$hide, $product</code></td><td>Whether the price is hidden.</td></tr>
+        <tr><td><code>blraq_hide_add_to_cart</code></td><td><code>$hide, $product</code></td><td>Whether Add to cart is hidden and blocked.</td></tr>
+        <tr><td><code>blraq_price_replacement_text</code></td><td><code>$text, $product</code></td><td>Text shown instead of a hidden price.</td></tr>
+        <tr><td><code>blraq_allow_out_of_stock</code></td><td><code>$allow, $product</code></td><td>Allow quotes for out-of-stock products.</td></tr>
+        <tr><td><code>blraq_supported_product_types</code></td><td><code>$types</code></td><td>Product types that can be quoted (default simple, variable, variation).</td></tr>
+        <tr><td><code>blraq_validate_add_to_basket</code></td><td><code>$valid, $product, $quantity</code></td><td>Allow or refuse adding to the quote list (return <code>WP_Error</code> to show a message).</td></tr>
+        <tr><td><code>blraq_basket_item_quantity</code> / <code>blraq_basket_item_meta</code></td><td><code>$value, $product</code></td><td>Quantity / extra data of a new list item.</td></tr>
+        <tr><td><code>blraq_button_label</code></td><td><code>$label, $product, $context</code></td><td>Button text (<code>$context</code>: <code>single</code> or <code>loop</code>).</td></tr>
+        <tr><td><code>blraq_button_classes</code></td><td><code>$classes, $context</code></td><td>Button CSS classes.</td></tr>
+        <tr><td><code>blraq_added_message</code></td><td><code>$html, $product</code></td><td>Message after adding a product (non-JS).</td></tr>
+        <tr><td><code>blraq_form_fields</code></td><td><code>$fields</code></td><td>Request form fields (see <a href="#examples">example</a>).</td></tr>
+        <tr><td><code>blraq_form_field_args</code></td><td><code>$args, $key, $value</code></td><td>Arguments passed to <code>woocommerce_form_field()</code>.</td></tr>
+        <tr><td><code>blraq_form_default_values</code></td><td><code>$values</code></td><td>Pre-filled values (logged-in customers get their billing details).</td></tr>
+        <tr><td><code>blraq_validate_field</code></td><td><code>$valid, $value, $field</code></td><td>Validate one field; return <code>WP_Error</code> to reject.</td></tr>
+        <tr><td><code>blraq_submission_data</code></td><td><code>$data, $posted</code></td><td>Clean data stored with the quote.</td></tr>
+        <tr><td><code>blraq_submit_button_text</code></td><td><code>$text</code></td><td>Submit button label.</td></tr>
+        <tr><td><code>blraq_submit_redirect</code></td><td><code>$url, $quote</code></td><td>Where customers go after sending.</td></tr>
+        <tr><td><code>blraq_min_submit_seconds</code></td><td><code>$seconds</code></td><td>Minimum time between loading and sending the form (spam check).</td></tr>
+        <tr><td><code>blraq_client_ip</code></td><td><code>$ip</code></td><td>Visitor IP used for rate limiting (e.g. behind a proxy).</td></tr>
+        <tr><td><code>blraq_quote_statuses</code></td><td><code>$statuses</code></td><td>Register or relabel statuses (<code>key =&gt; [ label, color ]</code>).</td></tr>
+        <tr><td><code>blraq_quote_number</code></td><td><code>$number, $quote</code></td><td>Displayed quote number.</td></tr>
+        <tr><td><code>blraq_display_item_price</code></td><td><code>$price, $item, $quote, $sent_to_admin</code></td><td>Unit price shown in quote tables (<code>null</code> hides it).</td></tr>
+        <tr><td><code>blraq_quote_totals_rows</code></td><td><code>$rows, $quote, $total, $sent_to_admin</code></td><td>Totals rows below quote tables.</td></tr>
+        <tr><td><code>blraq_quote_page_url</code></td><td><code>$url</code></td><td>URL of the quote page.</td></tr>
+        <tr><td><code>blraq_has_quote_page_override</code></td><td><code>$override</code></td><td>Return true to replace the quote page content (print it on <code>blraq_quote_page_override</code>).</td></tr>
+        <tr><td><code>blraq_manage_capability</code></td><td><code>$cap</code></td><td>Capability to manage quotes and settings (default <code>manage_woocommerce</code>).</td></tr>
+        <tr><td><code>blraq_list_table_columns</code> / <code>blraq_list_table_column_{name}</code> / <code>blraq_list_table_row_actions</code></td><td>…</td><td>Customize the quotes list.</td></tr>
+        <tr><td><code>blraq_settings_schema</code></td><td><code>$schema, $settings</code></td><td>Add settings tabs, sections and fields.</td></tr>
+        <tr><td><code>blraq_default_settings</code> / <code>blraq_setting_{key}</code></td><td><code>$defaults</code> / <code>$value, $key</code></td><td>Default values / a single setting value.</td></tr>
+        <tr><td><code>blraq_template_default_path</code></td><td><code>$path, $template_name</code></td><td>Folder templates are loaded from.</td></tr>
+        <tr><td><code>blraq_upgrade_url</code></td><td><code>$url</code></td><td>"Get Pro" link target.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="pro-hooks">Pro hooks <span class="badge pro">PRO</span></h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Hook</th><th>Arguments</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>blraq_pro_loaded</code> (action)</td><td><code>$pro</code></td><td>Pro has booted (with an active license).</td></tr>
+        <tr><td><code>blraq_pro_proposal_sent</code> (action)</td><td><code>$quote, $sent</code></td><td>A proposal email was sent.</td></tr>
+        <tr><td><code>blraq_pro_order_created</code> (action)</td><td><code>$order, $quote</code></td><td>A quote was turned into an order.</td></tr>
+        <tr><td><code>blraq_pro_order_from_quote</code> (filter)</td><td><code>$order, $quote</code></td><td>Adjust the order before it is saved.</td></tr>
+        <tr><td><code>blraq_pro_proposal_totals</code> (filter)</td><td><code>$totals, $quote</code></td><td>Proposal subtotal, discount, shipping, fee and total.</td></tr>
+        <tr><td><code>blraq_pro_proposal_visible_statuses</code> (filter)</td><td><code>$statuses</code></td><td>Statuses in which customers can see proposal prices.</td></tr>
+        <tr><td><code>blraq_pro_pdf_filename</code> (filter)</td><td><code>$name, $quote</code></td><td>PDF file name without <code>.pdf</code> (default <code>quote-{number}</code>).</td></tr>
+        <tr><td><code>blraq_pro_webhook_payload</code> (filter)</td><td><code>$payload, $event, $quote</code></td><td>Change the webhook JSON.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="webhooks">Webhooks <span class="badge pro">PRO</span></h2>
+    <p>Configure delivery URLs and a signing secret in <a href="settings.htm#integrations">Settings › Integrations</a>. Events are delivered in the background as an HTTP <code>POST</code> with a JSON body.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Event</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td><code>quote.created</code></td><td>A new quote request was submitted.</td></tr>
+        <tr><td><code>quote.status_changed</code></td><td>A quote changed status.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Headers</h3>
+    <ul>
+      <li><code>Content-Type: application/json</code></li>
+      <li><code>X-BLRAQ-Event</code> — the event name.</li>
+      <li><code>X-BLRAQ-Delivery</code> — a unique ID per delivery.</li>
+      <li><code>X-BLRAQ-Signature</code> — when a secret is set: base64 of the HMAC-SHA256 of the raw body, keyed with your secret.</li>
+    </ul>
+    <h3>Payload</h3>
+    <pre><code>{
+  "event": "quote.created",
+  "site": "https://example.com/",
+  "quote": {
+    "id": 58,
+    "number": "58",
+    "status": "new",
+    "status_label": "New",
+    "currency": "USD",
+    "total": 1080,
+    "customer": { "id": 0, "name": "Sofia Martinez", "email": "sofia@example.com" },
+    "fields": {
+      "company": { "label": "Company", "value": "Casa Boutique" },
+      "message": { "label": "Message", "value": "Wholesale pricing for 3 products." }
+    },
+    "items": [
+      {
+        "product_id": 21, "variation_id": 0, "name": "Shoes", "sku": "woo-fashion-shoes",
+        "quantity": 30, "price": 18, "offered_price": null, "attributes": {}
+      }
+    ],
+    "order_id": 0,
+    "created_at": "2026-10-01T06:02:00+00:00",
+    "expires_at": null,
+    "admin_url": "https://example.com/wp-admin/admin.php?page=blraq-quotes&amp;quote=58"
+  },
+  "sent_at": "2026-10-01T06:02:05+00:00"
+}</code></pre>
+    <h3>Verify the signature (PHP)</h3>
+    <pre><code>$body      = file_get_contents( 'php://input' );
+$expected  = base64_encode( hash_hmac( 'sha256', $body, 'your-signing-secret', true ) );
+$signature = isset( $_SERVER['HTTP_X_BLRAQ_SIGNATURE'] ) ? $_SERVER['HTTP_X_BLRAQ_SIGNATURE'] : '';
+
+if ( ! hash_equals( $expected, $signature ) ) {
+    http_response_code( 401 );
+    exit;
+}
+$event = json_decode( $body, true );</code></pre>
+
+    <h2 id="data">Stored data</h2>
+    <ul>
+      <li><strong>Custom tables</strong>: <code>{prefix}blraq_quotes</code>, <code>{prefix}blraq_quote_items</code>, <code>{prefix}blraq_quote_notes</code> and <code>{prefix}blraq_quotemeta</code>. Compatible with WooCommerce HPOS.</li>
+      <li><strong>Options</strong>: <code>blraq_settings</code>; with Pro also <code>blraq_pro_settings</code>, <code>blraq_pro_rules</code> and <code>blraq_pro_form</code>.</li>
+      <li><strong>Product meta</strong>: <code>_blraq_quote</code>, <code>_blraq_hide_price</code>, <code>_blraq_hide_atc</code> (per-product overrides).</li>
+      <li><strong>Pro uploads</strong>: files from upload fields are stored in a protected folder inside <code>wp-content/uploads</code> and served only to store managers.</li>
+      <li>Nothing is removed on deactivation; see <a href="settings.htm#advanced">Remove data on uninstall</a>.</li>
+    </ul>
+
+    <div class="next-prev">
+      <a href="pro.htm"><small>Previous</small><b>← Pro add-on</b></a>
+      <a class="next" href="faq.htm"><small>Next</small><b>FAQ &amp; support →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

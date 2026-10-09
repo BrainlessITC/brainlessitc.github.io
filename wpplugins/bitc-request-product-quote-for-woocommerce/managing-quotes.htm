@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Managing quotes — Request Product Quote for WooCommerce</title>
+<meta name="description" content="Work with quote requests: the quotes list, the quote screen, notes, replies, statuses and customer privacy.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./" aria-current="page">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Request Product Quote</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="managing-quotes.htm" aria-current="page">Managing quotes</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="developers.htm">Developers</a></li>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Request Product Quote</a> / Managing quotes</div>
+    <h1>Managing quotes</h1>
+    <p class="lead">Every request lands in <span class="path">Quotes › All Quotes</span>. Open one to see what was requested, keep notes and reply to the customer.</p>
+
+    <div class="toc"><b>On this page</b>
+      <ol>
+        <li><a href="#list">The quotes list</a></li>
+        <li><a href="#screen">The quote screen</a></li>
+        <li><a href="#reply">Replying to a customer</a></li>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#statuses">Statuses</a></li>
+        <li><a href="#privacy">Customer data &amp; privacy</a></li>
+      </ol>
+    </div>
+
+    <h2 id="list">The quotes list</h2>
+    <figure>
+      <img src="images/quotes-list.jpg" alt="Quotes list with status filters, search and bulk actions" loading="lazy" width="1568" height="778">
+      <figcaption>Quotes › All Quotes.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Columns</strong> — quote number and customer, email, products, estimated total, status and date. Click a column title to sort.</li>
+      <li><strong>Status filters</strong> above the table show how many quotes have each status.</li>
+      <li><strong>Search</strong> by customer name, email or quote number (for example <code>#58</code>).</li>
+      <li><strong>Bulk actions</strong> — change the status of the selected quotes, or delete them permanently.</li>
+      <li><strong>Screen Options</strong> (top right) sets how many quotes appear per page.</li>
+      <li>The number next to the <strong>Quotes</strong> menu is the count of quotes with the status <em>New</em>.</li>
+    </ul>
+
+    <h2 id="screen">The quote screen</h2>
+    <figure>
+      <img src="images/quote-screen.jpg" alt="Quote detail screen with products, customer details, actions and notes" loading="lazy" width="1568" height="733">
+      <figcaption>A quote: requested products, customer details, reply box, status and notes.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Requested products</strong> — products, variations, SKUs and quantities. Prices are the catalog prices at the time of the request, with an estimated total.</li>
+      <li><strong>Customer details</strong> — everything the customer filled in. Email and phone are clickable.</li>
+      <li><strong>Quote actions</strong> — change the status and click <strong>Update</strong>, or <strong>Delete permanently</strong>.</li>
+      <li><strong>Quote information</strong> — when it was requested, the customer (guest or a linked user account) and the source.</li>
+    </ul>
+    <div class="callout pro"><b class="label">Pro</b><p>With Pro the products box becomes a <a href="pro.htm#proposals">proposal editor</a>: set your own prices and quantities, add products, discounts, shipping and fees, then send the proposal or create an order.</p></div>
+
+    <h2 id="reply">Replying to a customer</h2>
+    <ol class="steps">
+      <li>Write your message in <strong>Reply to customer</strong>.</li>
+      <li>Leave <strong>Set status to "Replied"</strong> ticked to update the status automatically.</li>
+      <li>Click <strong>Send reply</strong>. The customer receives the <em>Quote reply</em> email with your message and the list of requested products.</li>
+    </ol>
+    <p>The reply is also saved as a note on the quote, so you always know what was sent. If the email could not be sent, the message is still saved and a warning tells you to check that the <em>Quote reply</em> email is enabled in WooCommerce › Settings › Emails.</p>
+    <div class="callout"><p>You can also simply reply to the <em>New quote request</em> email in your mailbox — its reply-to address is the customer's email.</p></div>
+
+    <h2 id="notes">Notes</h2>
+    <p>The <strong>Notes</strong> box shows the quote's history:</p>
+    <ul>
+      <li><strong>Private notes</strong> you add — never shown to the customer.</li>
+      <li><strong>Replies</strong> sent to the customer.</li>
+      <li><strong>System notes</strong> — status changes and other events, recorded automatically.</li>
+    </ul>
+
+    <h2 id="statuses">Statuses</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>New</strong></td><td>Just received; nobody has looked at it yet.</td></tr>
+        <tr><td><strong>In review</strong></td><td>You are working on it.</td></tr>
+        <tr><td><strong>Replied</strong></td><td>You replied to the customer.</td></tr>
+        <tr><td><strong>Accepted</strong></td><td>The customer agreed to your offer.</td></tr>
+        <tr><td><strong>Rejected</strong></td><td>The customer declined, or you won't proceed.</td></tr>
+        <tr><td><strong>Closed</strong></td><td>Finished — nothing more to do.</td></tr>
+        <tr><td><strong>Proposal sent</strong> <span class="badge pro">PRO</span></td><td>A priced proposal was sent and is waiting for the customer.</td></tr>
+        <tr><td><strong>Expired</strong> <span class="badge pro">PRO</span></td><td>The proposal passed its expiry date without an answer.</td></tr>
+        <tr><td><strong>Ordered</strong> <span class="badge pro">PRO</span></td><td>The quote was turned into a WooCommerce order.</td></tr>
+      </tbody>
+    </table></div>
+    <p>If you deactivate Pro, quotes with Pro statuses keep them and still show a readable label.</p>
+
+    <h2 id="privacy">Customer data &amp; privacy</h2>
+    <ul>
+      <li><strong>Export</strong> — <span class="path">Tools › Export Personal Data</span> includes the customer's quotes.</li>
+      <li><strong>Erase</strong> — <span class="path">Tools › Erase Personal Data</span> anonymises their quotes (name, email, form answers and IP address) while keeping the products and totals for your records.</li>
+      <li>A suggested text for your privacy policy is added to <span class="path">Settings › Privacy › Policy Guide</span>.</li>
+      <li>Quotes are never deleted when you deactivate the plugin. They are only removed on deletion if you turned on <a href="settings.htm#advanced">Remove data on uninstall</a>.</li>
+    </ul>
+
+    <div class="next-prev">
+      <a href="settings.htm"><small>Previous</small><b>← Settings</b></a>
+      <a class="next" href="pro.htm"><small>Next</small><b>Pro add-on →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

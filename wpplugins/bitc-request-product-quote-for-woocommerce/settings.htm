@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — Request Product Quote for WooCommerce</title>
+<meta name="description" content="Every setting of BrainlessITC Request Product Quote for WooCommerce explained: quote page, buttons, catalog mode, request form, per-product options and Pro settings.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./" aria-current="page">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Request Product Quote</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm" aria-current="page">Settings</a></li>
+      <li><a href="managing-quotes.htm">Managing quotes</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="developers.htm">Developers</a></li>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Request Product Quote</a> / Settings</div>
+    <h1>Settings</h1>
+    <p class="lead">All settings live in <span class="path">Quotes › Settings</span>. Tabs marked <span class="badge pro">PRO</span> appear when the Pro add-on is active.</p>
+
+    <div class="toc"><b>On this page</b>
+      <ol>
+        <li><a href="#general">General</a></li>
+        <li><a href="#products-buttons">Products &amp; Buttons</a></li>
+        <li><a href="#per-product">Per-product settings</a></li>
+        <li><a href="#request-form">Request Form</a></li>
+        <li><a href="#advanced">Advanced</a></li>
+        <li><a href="#emails">Emails</a></li>
+        <li><a href="#rules">Rules (Pro)</a></li>
+        <li><a href="#proposals">Proposals (Pro)</a></li>
+        <li><a href="#pdf">PDF (Pro)</a></li>
+        <li><a href="#integrations">Integrations (Pro)</a></li>
+        <li><a href="#priority">Which setting wins?</a></li>
+      </ol>
+    </div>
+
+    <h2 id="general">General</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Quote page</strong></td><td>View Quote</td><td>The page that shows the quote list and request form. It must contain the <em>Request a Quote</em> block or the <code>[blraq_quote]</code> shortcode.</td></tr>
+        <tr><td><strong>After adding a product</strong></td><td>Stay on the page</td><td><em>Stay on the page and show a "View quote" link</em>, or <em>Go to the quote page</em>.</td></tr>
+        <tr><td><strong>Guest requests</strong></td><td>On</td><td>Allow visitors who are not logged in to request a quote. When off, guests are asked to log in.</td></tr>
+        <tr><td><strong>Show prices</strong></td><td>On</td><td>Show product prices and the estimated total on the quote page and in customer emails. Products with hidden prices never show a price.</td></tr>
+        <tr><td><strong>Confirmation message</strong></td><td>"Thank you! We have received your quote request…"</td><td>Shown on the quote page after a request has been sent.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="products-buttons">Products &amp; Buttons</h2>
+    <figure>
+      <img src="images/settings-products-buttons.jpg" alt="Products and Buttons settings" loading="lazy" width="1568" height="733">
+      <figcaption>Where the button appears, catalog mode and button style.</figcaption>
+    </figure>
+    <h3>Where to show the quote button</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Enable quotes for</strong></td><td>All products</td><td><em>All products</em>, or <em>Only products where quotes are enabled individually</em> (see <a href="#per-product">per-product settings</a>).</td></tr>
+        <tr><td><strong>Product pages</strong></td><td>On</td><td>Show the button on single product pages.</td></tr>
+        <tr><td><strong>Shop &amp; category pages</strong></td><td>On</td><td>Show the button in product lists — shop, categories and WooCommerce product blocks.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Catalog mode</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Hide prices</strong></td><td>Off</td><td>Hide the price of quote-enabled products — on product pages, in lists and in the Store API used by blocks.</td></tr>
+        <tr><td><strong>Price replacement text</strong></td><td>empty</td><td>Optional text shown instead of a hidden price, e.g. "Price on request".</td></tr>
+        <tr><td><strong>Hide Add to cart</strong></td><td>Off</td><td>Remove the Add to cart button of quote-enabled products <em>and</em> block adding them to the cart (classic, AJAX and block checkout).</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Button</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Button text</strong></td><td>Add to quote</td><td>Label of the quote button.</td></tr>
+        <tr><td><strong>"View quote" link text</strong></td><td>View quote</td><td>Link shown after a product is added.</td></tr>
+        <tr><td><strong>Button style</strong></td><td>Use theme button style</td><td>Match your theme's buttons, or choose <em>Custom colors</em> to set background, text, hover background and hover text colors.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="per-product">Per-product settings</h2>
+    <p>Every simple and variable product has a <strong>Request a Quote</strong> tab in the <em>Product data</em> box. Each option can follow the global setting or override it for that product.</p>
+    <figure>
+      <img src="images/product-quote-tab.jpg" alt="Request a Quote tab in the WooCommerce product data box" loading="lazy" width="1568" height="733">
+      <figcaption>Product data › Request a Quote.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>Allow quote requests</strong> — use the global setting, or force Yes / No.</li>
+      <li><strong>Hide price</strong> — use the global setting, or force Yes / No.</li>
+      <li><strong>Hide Add to cart</strong> — use the global setting, or force Yes / No.</li>
+    </ul>
+    <div class="callout"><p>Tip: set <em>Enable quotes for</em> to "Only products where quotes are enabled individually", then set <em>Allow quote requests</em> to Yes on the products that need quotes.</p></div>
+
+    <h2 id="request-form">Request Form</h2>
+    <h3>Form fields</h3>
+    <p>The form has six built-in fields: <em>First name</em>, <em>Last name</em>, <em>Email address</em>, <em>Phone</em>, <em>Company</em> and <em>Message</em>. For each one you can:</p>
+    <ul>
+      <li>turn it on or off (<strong>Enabled</strong>),</li>
+      <li>make it mandatory (<strong>Required</strong>) — first name, last name and email are required by default,</li>
+      <li>change its <strong>Label</strong> — leave it empty to keep the default, translatable text.</li>
+    </ul>
+    <p>The email address is always enabled and required, because it is how you reply.</p>
+    <div class="callout pro"><b class="label">Pro</b><p>The <a href="pro.htm#form-builder">form builder</a> replaces this list: add your own fields (dropdowns, radios, checkboxes, dates, numbers, file uploads), set widths and placeholders and drag to reorder. It also adds <strong>Allowed file types</strong> and <strong>Maximum file size (MB)</strong> for uploads.</p></div>
+    <h3>Privacy &amp; spam protection</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Privacy checkbox</strong></td><td>On</td><td>Customers must accept your privacy policy before sending.</td></tr>
+        <tr><td><strong>Privacy checkbox text</strong></td><td>"I have read and agree to the website [privacy_policy]."</td><td><code>[privacy_policy]</code> becomes a link to the privacy page set in <span class="path">Settings › Privacy</span>.</td></tr>
+        <tr><td><strong>Requests per hour</strong></td><td>5</td><td>Maximum requests one visitor (IP address) can send per hour. <code>0</code> disables the limit. A hidden honeypot field and a submit-time check are always active.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="advanced">Advanced</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Remove data on uninstall</strong></td><td>Off</td><td>Permanently delete all quotes and settings when the plugin is <em>deleted</em>. Leave it off to keep your data — recommended when upgrading or reinstalling. Deactivating never deletes anything.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="emails">Emails</h2>
+    <p>The <strong>Emails</strong> tab links to <span class="path">WooCommerce › Settings › Emails</span>, where each email can be enabled, edited and previewed like any WooCommerce email.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Email</th><th>Sent to</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td><strong>New quote request</strong></td><td>Store</td><td>A customer submits a quote request. Replying to it replies to the customer.</td></tr>
+        <tr><td><strong>Quote request received</strong></td><td>Customer</td><td>Confirmation after they submit a request.</td></tr>
+        <tr><td><strong>Quote reply</strong></td><td>Customer</td><td>You reply from the quote screen.</td></tr>
+        <tr><td><strong>Quote proposal</strong> <span class="badge pro">PRO</span></td><td>Customer</td><td>You send a priced proposal with a link to accept it online.</td></tr>
+        <tr><td><strong>Quote expiry reminder</strong> <span class="badge pro">PRO</span></td><td>Customer</td><td>A few days before an open proposal expires.</td></tr>
+        <tr><td><strong>Quote accepted</strong> <span class="badge pro">PRO</span></td><td>Store</td><td>A customer accepts a proposal online.</td></tr>
+        <tr><td><strong>Quote declined</strong> <span class="badge pro">PRO</span></td><td>Store</td><td>A customer declines a proposal online (with their reason, if given).</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="rules">Rules <span class="badge pro">PRO</span></h2>
+    <p>Rules change quote behaviour for groups of visitors and products — for example "wholesale customers see no prices and get a <em>Request wholesale quote</em> button".</p>
+    <figure>
+      <img src="images/pro-rules.jpg" alt="A rule for wholesale customers" loading="lazy" width="1568" height="733">
+      <figcaption>A rule: <em>when</em> the visitor has the Customer role, <em>then</em> show the quote button, hide the price and Add to cart, and change the button text.</figcaption>
+    </figure>
+    <ul>
+      <li><strong>When</strong> — Visitor (everyone, guests, logged-in customers or specific user roles), Products, Categories, Tags and Stock status. Product, category and tag lists match if any of them matches; leave all three empty for every product.</li>
+      <li><strong>Then</strong> — Quote button (show / hide), Hide price, Price replacement text, Hide Add to cart and Button text. "Don't change" keeps the global setting.</li>
+      <li>Rules are checked from top to bottom and the first matching rule decides. Drag to reorder.</li>
+      <li><strong>Out of stock products</strong> — allow quote requests for out-of-stock products (a quote button is shown instead of the unavailable Add to cart).</li>
+    </ul>
+
+    <h2 id="proposals">Proposals <span class="badge pro">PRO</span></h2>
+    <figure>
+      <img src="images/pro-settings-proposals.jpg" alt="Proposals settings" loading="lazy" width="1568" height="733">
+      <figcaption>Quotes › Settings › Proposals.</figcaption>
+    </figure>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Valid for (days)</strong></td><td>30</td><td>Default expiry of a proposal; you can change the date per quote. <code>0</code> = no expiry.</td></tr>
+        <tr><td><strong>Reminder (days before expiry)</strong></td><td>3</td><td>Email the customer this many days before an open proposal expires. <code>0</code> disables reminders.</td></tr>
+        <tr><td><strong>Online acceptance</strong></td><td>On</td><td>Let customers accept or reject a proposal online (link in the email and in My Account).</td></tr>
+        <tr><td><strong>Create order on acceptance</strong></td><td>On</td><td>Turn an accepted proposal into a pending order and send the customer to the payment page.</td></tr>
+        <tr><td><strong>Payment methods for quote orders</strong></td><td>All enabled</td><td>Limit which payment methods can pay quote orders. Leave empty to allow every enabled method.</td></tr>
+        <tr><td><strong>Terms &amp; conditions</strong></td><td>empty</td><td>Shown on proposals and PDF quotes.</td></tr>
+        <tr><td><strong>My Account</strong></td><td>On</td><td>Show a "Quotes" section in My Account with history, proposals and PDF downloads.</td></tr>
+        <tr><td><strong>Target price</strong></td><td>Off</td><td>Let customers suggest their own unit price for each product in the quote list.</td></tr>
+        <tr><td><strong>Cart to quote</strong></td><td>Off</td><td>Show a "Request a quote for this cart" button on the cart page.</td></tr>
+        <tr><td><strong>Empty cart after moving</strong></td><td>On</td><td>Remove the products from the cart once they are moved to the quote list.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="pdf">PDF <span class="badge pro">PRO</span></h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>Default</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Enable PDF</strong></td><td>On</td><td>Generate PDF quotes — download from the quote screen and from My Account.</td></tr>
+        <tr><td><strong>Attach to proposal email</strong></td><td>On</td><td>Attach the PDF to the proposal email.</td></tr>
+        <tr><td><strong>Logo URL</strong></td><td>empty</td><td>A PNG or JPG from your Media Library — paste the file URL.</td></tr>
+        <tr><td><strong>Company details</strong></td><td>empty</td><td>Name, address, VAT number… shown at the top of the PDF.</td></tr>
+        <tr><td><strong>Footer</strong></td><td>empty</td><td>Text at the bottom of every page.</td></tr>
+        <tr><td><strong>Paper size</strong></td><td>A4</td><td>A4 or US Letter.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="integrations">Integrations <span class="badge pro">PRO</span></h2>
+    <h3>CAPTCHA</h3>
+    <p>Choose <strong>Cloudflare Turnstile</strong> or <strong>Google reCAPTCHA v3</strong> and paste the <em>Site key</em> and <em>Secret key</em> from the provider. For reCAPTCHA v3 you can set the <strong>minimum score</strong> (default 0.5).</p>
+    <h3>Webhooks</h3>
+    <p>Send quote events (<code>quote.created</code>, <code>quote.status_changed</code>) as JSON to Zapier, Make, a CRM or your own endpoint. Enter one HTTPS URL per line in <strong>Delivery URLs</strong>. With a <strong>Signing secret</strong>, every request carries an <code>X-BLRAQ-Signature</code> header. See <a href="developers.htm#webhooks">Developers › Webhooks</a> for the payload and how to verify it.</p>
+
+    <h2 id="priority">Which setting wins?</h2>
+    <p>From strongest to weakest:</p>
+    <ol>
+      <li><strong>Per-product settings</strong> on the product's Request a Quote tab.</li>
+      <li><strong>Rules</strong> <span class="badge pro">PRO</span> — the first matching rule.</li>
+      <li><strong>Global settings</strong> in Products &amp; Buttons.</li>
+    </ol>
+
+    <div class="next-prev">
+      <a href="getting-started.htm"><small>Previous</small><b>← Getting started</b></a>
+      <a class="next" href="managing-quotes.htm"><small>Next</small><b>Managing quotes →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ &amp; support — Request Product Quote for WooCommerce</title>
+<meta name="description" content="Answers to common questions about BrainlessITC Request Product Quote for WooCommerce, how to get support, and the changelog.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support" aria-current="page">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Request Product Quote</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="managing-quotes.htm">Managing quotes</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="developers.htm">Developers</a></li>
+      <li><a href="faq.htm" aria-current="page">FAQ &amp; support</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Request Product Quote</a> / FAQ &amp; support</div>
+    <h1>FAQ &amp; support</h1>
+    <p class="lead">Quick answers to common questions, how to reach us, and what changed in each version.</p>
+
+    <div class="toc"><b>On this page</b>
+      <ol>
+        <li><a href="#faq">Frequently asked questions</a></li>
+        <li><a href="#data">What data is shared?</a></li>
+        <li><a href="#support">Getting support</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+      </ol>
+    </div>
+
+    <h2 id="faq">Frequently asked questions</h2>
+
+    <h3>Does it work with block themes and WooCommerce blocks?</h3>
+    <p>Yes. The button is added to classic templates, to the <em>Add to Cart Form</em> and <em>Add to Cart with Options</em> blocks, and to the <em>Product Button</em> block used by Product Collection. The plugin is compatible with High-Performance Order Storage (HPOS) and the Cart &amp; Checkout blocks.</p>
+
+    <h3>Can customers still buy normally?</h3>
+    <p>Yes. By default prices and Add to cart stay visible and quotes work alongside normal purchases. Turn on <a href="settings.htm#products-buttons">catalog mode</a> to hide prices and/or Add to cart — globally, per product, or (Pro) with rules.</p>
+
+    <h3>Can I hide prices only for some products?</h3>
+    <p>Yes. Every product has a <strong>Request a Quote</strong> tab in the product data box where you can override the global settings: allow quotes, hide price and hide Add to cart. With Pro, <a href="settings.htm#rules">rules</a> can do it by category, tag, stock status or customer role.</p>
+
+    <h3>Are hidden prices really hidden?</h3>
+    <p>Yes. Hidden prices are removed from product pages and lists, from the data used by WooCommerce blocks (Store API) and from the product's structured data for search engines. Products with hidden Add to cart also can't be added to the cart through links or the API.</p>
+
+    <h3>Do customers need an account?</h3>
+    <p>No — guests can request quotes by default. Turn off <a href="settings.htm#general">Guest requests</a> to require login. Logged-in customers get their details pre-filled, and their quote list follows them across devices.</p>
+
+    <h3>Which products can be quoted?</h3>
+    <p>Simple and variable products (including variations with "any" attributes). Products <strong>without a price</strong> can be quoted too. Out-of-stock products can be quoted with Pro's <a href="settings.htm#rules">Out of stock products</a> option.</p>
+
+    <h3>Where do I change the email texts?</h3>
+    <p>In <span class="path">WooCommerce › Settings › Emails</span>: <em>New quote request</em>, <em>Quote request received</em> and <em>Quote reply</em> (plus the Pro emails). You can preview them there. To change the HTML, <a href="developers.htm#templates">override the templates</a> in your theme.</p>
+
+    <h3>Emails are not arriving. What can I do?</h3>
+    <p>Quotes are always saved in <span class="path">Quotes › All Quotes</span>, even if an email fails. If no store emails arrive at all, your server is probably not sending mail — install an SMTP plugin and connect it to your email provider. Also check that the email is enabled in WooCommerce › Settings › Emails.</p>
+
+    <h3>Does it work with page caching?</h3>
+    <p>Yes. The quote page is never cached, the quote counter updates from a cookie on cached pages, and the Add to quote button refreshes its security token automatically if a cached page is old.</p>
+
+    <h3>Is it translation ready?</h3>
+    <p>Yes. All texts are translatable — contribute translations on <a href="https://translate.wordpress.org/projects/wp-plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">translate.wordpress.org</a> or use a plugin such as Loco Translate.</p>
+
+    <h3>Will I lose my quotes if I deactivate or delete the plugin?</h3>
+    <p>No. Deactivating never deletes anything. Deleting the plugin only removes data if you turned on <a href="settings.htm#advanced">Remove data on uninstall</a>.</p>
+
+    <h3>What happens to my data when I upgrade to Pro?</h3>
+    <p>Nothing changes — Pro is an add-on that uses the same quotes and settings. If you later stop using Pro, your quotes stay and the free features keep working.</p>
+
+    <h2 id="data">What data is shared?</h2>
+    <p>The plugin uses the Freemius SDK for an optional usage-data opt-in, the Add-Ons page and Pro purchases.</p>
+    <ul>
+      <li><strong>Nothing is sent unless you opt in.</strong> After activation you may choose to share basic, non-sensitive data (site URL, WordPress / PHP / plugin versions, admin name and email, and plugin events such as activation and deactivation). You can skip it, and opt out at any time.</li>
+      <li>When you open <span class="path">Quotes › Add-Ons</span>, details and pricing of the Pro add-on are loaded from Freemius, and purchases are processed by Freemius.</li>
+      <li>Your quotes and your customers' data stay in your WordPress database. They are not sent anywhere — unless you set up Pro <a href="developers.htm#webhooks">webhooks</a> yourself.</li>
+    </ul>
+    <p>Freemius <a href="https://freemius.com/terms/" target="_blank" rel="noopener">Terms of Service</a> · <a href="https://freemius.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a></p>
+
+    <h2 id="support">Getting support</h2>
+    <div class="feature-grid">
+      <div class="feature"><b>Free plugin</b><span>Ask in the <a href="https://wordpress.org/support/plugin/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">WordPress.org support forum</a>. We read every topic.</span></div>
+      <div class="feature"><b>Pro customers</b><span>Email <a href="mailto:hello@brainlessitc.com">hello@brainlessitc.com</a> from (or mentioning) your license email address.</span></div>
+    </div>
+    <p>To help us help you faster, please include:</p>
+    <ul>
+      <li>Your WordPress, WooCommerce, PHP and plugin versions (<span class="path">Tools › Site Health › Info</span>).</li>
+      <li>Your theme, and whether the problem also happens with a default theme such as Twenty Twenty-Five.</li>
+      <li>The steps to reproduce the problem and what you expected to happen.</li>
+      <li>A screenshot, if something looks wrong.</li>
+    </ul>
+    <p>Feature ideas are welcome too — post them in the forum.</p>
+    <div class="callout warn"><b class="label">Security</b><p>Found a security issue? Please email <a href="mailto:hello@brainlessitc.com">hello@brainlessitc.com</a> privately instead of posting it in the public forum.</p></div>
+
+    <h2 id="changelog">Changelog</h2>
+    <h3>1.0.0 — October 2026</h3>
+    <ul>
+      <li>Initial release on WordPress.org.</li>
+      <li>Pro add-on 1.0.0 released.</li>
+    </ul>
+
+    <div class="next-prev">
+      <a href="developers.htm"><small>Previous</small><b>← Developers</b></a>
+      <a class="next" href="./"><small>Back to</small><b>Overview →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-request-product-quote-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
