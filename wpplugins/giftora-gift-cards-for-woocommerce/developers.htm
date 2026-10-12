@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developers — Giftora Gift Cards for WooCommerce</title>
+<meta name="description" content="Developer reference for Giftora Gift Cards for WooCommerce: templates, hooks and functions.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Giftora Gift Cards</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="managing.htm">Managing gift cards</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Giftora Pro</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+      <li><a href="developers.htm" aria-current="page">Developers</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Giftora Gift Cards</a> / Developers</div>
+    <h1>Developers</h1>
+    <p class="lead">Templates, hooks and helper functions to customize Giftora.</p>
+
+    <h2 id="templates">Templates</h2>
+    <p>Copy a template from the plugin's <code>templates/</code> folder to <code>yourtheme/giftora-gift-cards-for-woocommerce/</code> and edit it there.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Template</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td><code>single-product/add-to-cart/giftora-gift-card.php</code></td><td>Purchase form on the product page</td></tr>
+        <tr><td><code>cart/giftora-redeem-form.php</code></td><td>"Have a gift card?" form (classic cart / checkout)</td></tr>
+        <tr><td><code>balance-form.php</code></td><td>Balance checker</td></tr>
+        <tr><td><code>emails/giftora-gift-card.php</code>, <code>emails/plain/giftora-gift-card.php</code></td><td>Gift card email</td></tr>
+        <tr><td><code>pro/…</code></td><td>Pro templates: design picker, PDF, My Account, Pro emails</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="actions">Actions</h2>
+    <ul>
+      <li><code>giftora_loaded( $plugin )</code> — after the plugin is loaded.</li>
+      <li><code>giftora_card_created( $card, $args )</code>, <code>giftora_card_issued( $card, $order )</code>, <code>giftora_order_cards_issued( $cards, $order )</code></li>
+      <li><code>giftora_card_delivered( $card, $resend )</code>, <code>giftora_card_applied( $card )</code>, <code>giftora_card_status_changed( $id, $status, $old )</code></li>
+      <li><code>giftora_order_reconciled( $order, $released )</code> — after card balances of an order were updated.</li>
+      <li><code>giftora_purchase_form_fields( $product )</code>, <code>giftora_validate_purchase( $errors, $data, $product, $qty )</code></li>
+    </ul>
+
+    <h2 id="filters">Filters</h2>
+    <ul>
+      <li><code>giftora_generated_code</code>, <code>giftora_code_groups</code> — code format.</li>
+      <li><code>giftora_create_card_args</code>, <code>giftora_issue_card_args</code> — data of new cards.</li>
+      <li><code>giftora_product_amounts</code>, <code>giftora_product_custom_amount_range</code>, <code>giftora_purchase_data</code>, <code>giftora_purchase_description</code></li>
+      <li><code>giftora_validate_card_for_cart</code>, <code>giftora_can_apply_card</code>, <code>giftora_cart_eligible_total</code>, <code>giftora_max_cards_per_order</code></li>
+      <li><code>giftora_deliver_card_now</code>, <code>giftora_card_image_url</code>, <code>giftora_gift_card_email_attachments</code></li>
+      <li><code>giftora_rate_limit_attempts</code>, <code>giftora_rate_limit_window</code></li>
+    </ul>
+
+    <h2 id="functions">Functions</h2>
+    <ul>
+      <li><code>giftora_get_card( $id_or_code )</code> — returns a card object or <code>null</code>.</li>
+      <li><code>giftora()-&gt;cards-&gt;create( array( 'amount' =&gt; 50, 'recipient_email' =&gt; '…' ) )</code> — create a card.</li>
+      <li><code>giftora()-&gt;cards-&gt;debit( $id, $amount )</code> / <code>credit()</code> / <code>set_balance()</code> — atomic balance changes, logged in the history.</li>
+      <li><code>giftora()-&gt;emails-&gt;deliver( $card )</code> — send the gift card email.</li>
+    </ul>
+
+    <h2 id="data">Data</h2>
+    <p>Gift cards are stored in <code>{prefix}giftora_cards</code>, their history in <code>{prefix}giftora_transactions</code>. Settings are WooCommerce options named <code>giftora_*</code>. Orders keep the cards they used in the order meta <code>_giftora_redemptions</code> (and what was actually taken in <code>_giftora_debits</code>).</p>
+
+    <div class="next-prev">
+      <a class="prev" href="faq.htm"><small>Previous</small><b>← FAQ &amp; support</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting started — Giftora Gift Cards for WooCommerce</title>
+<meta name="description" content="Install Giftora Gift Cards for WooCommerce, create a gift card product and test a purchase.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Giftora Gift Cards</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm" aria-current="page">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="managing.htm">Managing gift cards</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Giftora Pro</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+      <li><a href="developers.htm">Developers</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Giftora Gift Cards</a> / Getting started</div>
+    <h1>Getting started</h1>
+    <p class="lead">Install the plugin, create your first gift card product and test a purchase in a few minutes.</p>
+
+    <h2 id="install">1. Install</h2>
+    <ol class="steps">
+      <li>Make sure <strong>WooCommerce</strong> is installed and active.</li>
+      <li>In <strong>Plugins &gt; Add New</strong>, search for <em>Giftora Gift Cards</em>, install and activate it.</li>
+      <li>After activation you can choose to share anonymous usage data — this is optional; the plugin works the same either way.</li>
+    </ol>
+
+    <h2 id="product">2. Create a gift card product</h2>
+    <p>Click <strong>Create a gift card product</strong> in the notice, or go to <strong>Products &gt; Add New</strong> and choose <strong>Gift card</strong> as the product type.</p>
+    <ul>
+      <li>In the <strong>Gift card</strong> tab, enter the amounts customers can choose from, separated by commas: <code>25, 50, 100</code>.</li>
+      <li>Add a product image — it is used as the card image in the preview and in the email.</li>
+      <li>Gift cards are virtual (no shipping) and new gift card products get the tax status <em>None</em>, because in most countries tax is due when the card is spent, not when it is sold.</li>
+      <li>Publish the product.</li>
+    </ul>
+    <div class="callout"><b>Tip</b> Use the <strong>Default gift card image</strong> setting for a store-wide card image when the product has none.</div>
+
+    <h2 id="test">3. Test a purchase</h2>
+    <ol class="steps">
+      <li>Open the product, pick an amount, enter a recipient email and a message and add it to the cart.</li>
+      <li>Check out. When the order reaches <em>Processing</em> (or <em>Completed</em>, see <a href="settings.htm">Settings</a>), the gift card is created and emailed.</li>
+      <li>Find the new card in <strong>Gift Cards</strong> in the admin menu, and the code in the order details.</li>
+      <li>Add another product to the cart and enter the code in the <em>Have a gift card?</em> field (classic) or <em>Add a gift card</em> (Cart and Checkout blocks).</li>
+    </ol>
+    <div class="callout"><b>Offline payments</b> Orders paid by bank transfer or cheque stay <em>On hold</em> until you mark them as paid. The gift card is issued at that moment.</div>
+
+    <h2 id="balance">4. Let customers check their balance</h2>
+    <p>Add the <strong>Gift Card Balance</strong> block to any page, or the shortcode <code>[giftora_balance]</code>. Customers enter their code and see the remaining balance.</p>
+
+    <div class="next-prev">
+      <a class="prev" href="./"><small>Previous</small><b>← Overview</b></a><a class="next" href="settings.htm"><small>Next</small><b>Settings →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

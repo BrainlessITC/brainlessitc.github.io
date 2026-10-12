@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — Giftora Gift Cards for WooCommerce</title>
+<meta name="description" content="Settings of Giftora Gift Cards for WooCommerce.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Giftora Gift Cards</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm" aria-current="page">Settings</a></li>
+      <li><a href="managing.htm">Managing gift cards</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Giftora Pro</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+      <li><a href="developers.htm">Developers</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Giftora Gift Cards</a> / Settings</div>
+    <h1>Settings</h1>
+    <p class="lead">All options are in WooCommerce &gt; Settings &gt; Gift Cards. The gift card email is configured in WooCommerce &gt; Settings &gt; Emails.</p>
+
+    <figure>
+      <img src="images/settings.jpg" alt="Gift Cards settings tab in WooCommerce settings" loading="lazy" width="1100" height="535">
+      <figcaption>WooCommerce &gt; Settings &gt; Gift Cards.</figcaption>
+    </figure>
+
+    <h2 id="general">General</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td>Issue gift cards when the order is</td><td><em>Processing (paid)</em> — the default — or <em>Completed</em>. Codes are created and emailed at this status.</td></tr>
+        <tr><td>Code prefix</td><td>Optional letters/digits added in front of every code, e.g. <code>GIFT</code> gives <code>GIFT-7KQ2-M9XA-T4PB-H3ZD</code>.</td></tr>
+        <tr><td>Default amounts</td><td>Amounts pre-filled for new gift card products.</td></tr>
+        <tr><td>Message length</td><td>Maximum characters of the personal message (0 = no limit).</td></tr>
+        <tr><td>Live preview</td><td>Shows a preview of the card on the product page that updates while the customer types.</td></tr>
+        <tr><td>Default gift card image</td><td>Card image for the preview and the email when the product has no image.</td></tr>
+        <tr><td>Show codes to the buyer</td><td>Shows the issued codes in the buyer's order details and order emails (useful when the recipient loses the email).</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="redemption">Redemption</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td>Gift card field</td><td>Show the gift card field on the cart page and/or the checkout page (classic pages and blocks).</td></tr>
+        <tr><td>Buying gift cards</td><td>When on (default), gift cards cannot be used to pay for other gift cards.</td></tr>
+        <tr><td>One-click redeem</td><td>The <em>Shop now</em> button in the email applies the card to the recipient's cart.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="advanced">Advanced</h2>
+    <p><strong>Remove data on uninstall</strong> — when enabled, deleting the plugin removes all gift cards, their history and the settings. Gift card products and orders are kept. Data is never removed while the Pro edition is installed. Off by default.</p>
+
+    <h2 id="email">The gift card email</h2>
+    <p>In <strong>WooCommerce &gt; Settings &gt; Emails &gt; Gift card</strong> you can enable/disable the email, change the subject, heading and additional text, choose HTML or plain text, and send a blind copy to the buyer. Placeholders: <code>{amount}</code>, <code>{sender_name}</code>, <code>{recipient_name}</code>, <code>{site_title}</code>. Use the preview to see the result with sample data.</p>
+
+    <div class="next-prev">
+      <a class="prev" href="getting-started.htm"><small>Previous</small><b>← Getting started</b></a><a class="next" href="managing.htm"><small>Next</small><b>Managing gift cards →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

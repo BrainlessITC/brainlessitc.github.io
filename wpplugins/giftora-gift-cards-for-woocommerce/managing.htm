@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Managing gift cards — Giftora Gift Cards for WooCommerce</title>
+<meta name="description" content="Manage gift cards, balances, history and orders in Giftora Gift Cards for WooCommerce.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="brainlessitc WordPress plugins home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>Giftora Gift Cards</b><span>for WooCommerce · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="managing.htm" aria-current="page">Managing gift cards</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Giftora Pro</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+      <li><a href="developers.htm">Developers</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">Giftora Gift Cards</a> / Managing gift cards</div>
+    <h1>Managing gift cards</h1>
+    <p class="lead">Every gift card — bought or created manually — is listed in Gift Cards in the admin menu.</p>
+
+    <figure>
+      <img src="images/gift-cards-list.jpg" alt="Gift card list with status filters" loading="lazy" width="1568" height="680">
+      <figcaption>All gift cards with status filters, search and bulk actions.</figcaption>
+    </figure>
+
+    <h2 id="statuses">Statuses</h2>
+    <ul>
+      <li><strong>Active</strong> — has a balance and can be used.</li>
+      <li><strong>Fully redeemed</strong> — the balance is zero.</li>
+      <li><strong>Disabled</strong> — cannot be used at checkout (disabled by you, or because the purchase order was cancelled or refunded).</li>
+      <li><strong>Expired</strong> — the expiry date has passed (Pro).</li>
+    </ul>
+
+    <h2 id="card-screen">The gift card screen</h2>
+    <p>Click a code to open it. You can:</p>
+    <ul>
+      <li>change the recipient, sender name and message, and enable or disable the card;</li>
+      <li><strong>adjust the balance</strong> with a reason that is saved in the history;</li>
+      <li><strong>resend the gift card email</strong>;</li>
+      <li>see the full <strong>history</strong>: issued, used for orders, returned from cancelled orders, adjustments and emails;</li>
+      <li>delete the card (disable it instead if you want to keep its history).</li>
+    </ul>
+    <figure>
+      <img src="images/gift-card-screen.jpg" alt="Gift card detail screen with history" loading="lazy" width="1568" height="675">
+      <figcaption>A gift card with its details, balance adjustment and complete history.</figcaption>
+    </figure>
+
+    <h2 id="manual">Creating gift cards manually</h2>
+    <p><strong>Gift Cards &gt; Add Gift Card</strong> creates a card without an order — for giveaways, store credit or replacements. Enter the amount, optionally your own code (at least 6 letters or digits), the recipient and a message, and email it right away.</p>
+
+    <h2 id="orders">Orders</h2>
+    <ul>
+      <li>Gift cards used for an order are shown in the order totals (admin, emails, My Account) as <em>Gift card ••••ABCD</em>.</li>
+      <li>The order total is what the customer pays with other payment methods. If gift cards cover everything, no payment method is needed.</li>
+      <li>If the order is <strong>cancelled or fully refunded</strong>, the amount is returned to the gift card automatically. If the order is restored, the amount is taken again.</li>
+      <li>Gift cards bought with an order are disabled when that order is cancelled or refunded, and enabled again if it is restored.</li>
+      <li>If a paid order did not issue its cards (e.g. it was created manually), use the order action <em>Issue missing gift cards</em>.</li>
+    </ul>
+
+    <h2 id="security">Security</h2>
+    <ul>
+      <li>Codes are 16 random characters (80 bits) from an alphabet without look-alike characters.</li>
+      <li>Balances change with single conditional database updates, so a card can never be spent twice at the same time.</li>
+      <li>Failed code lookups are limited per visitor (10 per 15 minutes by default) to stop guessing.</li>
+    </ul>
+
+    <div class="next-prev">
+      <a class="prev" href="settings.htm"><small>Previous</small><b>← Settings</b></a><a class="next" href="pro.htm"><small>Next</small><b>Giftora Pro →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/giftora-gift-cards-for-woocommerce/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
