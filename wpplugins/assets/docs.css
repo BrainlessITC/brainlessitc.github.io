@@ -79,8 +79,12 @@ section.block{ padding: 80px 0; border-bottom: 1px solid var(--line); }
   transition: border-color .2s;
 }
 .plugin-card:hover{ border-color: var(--accent); }
+.plugin-card + .plugin-card{ margin-top: 20px; }
 .plugin-card .p-icon{ width: 120px; height: 120px; border-radius: 22px; }
 .plugin-card h3{ font-size: 22px; margin-bottom: 6px; }
+.plugin-card h3 a{ border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.plugin-card h3 a:hover{ color: var(--accent-2); border-bottom-color: var(--accent-2); }
+.plugin-card h3 a::after{ content: " \2197"; font-size: .7em; color: var(--text-dim); vertical-align: 2px; }
 .plugin-card p{ color: var(--text-dim); font-size: 15px; }
 .tags{ display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 .tag{ font-size: 11px; letter-spacing: .06em; color: var(--accent-2); border: 1px solid rgba(61,220,151,.25); border-radius: 100px; padding: 3px 10px; font-family: 'JetBrains Mono', monospace; }
