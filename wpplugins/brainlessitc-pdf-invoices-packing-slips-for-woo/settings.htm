@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — BrainlessITC PDF Invoices &amp; Packing Slips for Woo</title>
+<meta name="description" content="All settings are under WooCommerce &gt; PDF Invoices, organised in tabs.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../../" aria-label="brainlessitc home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../../">Home</a></li>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>BrainlessITC PDF Invoices</b><span>&amp; Packing Slips for Woo · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm" aria-current="page">Settings</a></li>
+      <li><a href="numbering.htm">Invoice numbering</a></li>
+      <li><a href="documents.htm">Orders, emails &amp; downloads</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+      <li><a href="developers.htm">Developers</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">BrainlessITC PDF Invoices</a> / Settings</div>
+    <h1>Settings</h1>
+    <p class="lead">All settings are under WooCommerce &gt; PDF Invoices, organised in tabs.</p>
+
+    <h2 id="general">General</h2>
+    <ul>
+      <li><strong>Paper size</strong> — A4 or US Letter.</li>
+      <li><strong>Open PDFs</strong> — in the browser (easy printing) or as a download.</li>
+      <li><strong>Font</strong> — DejaVu Sans (Latin, Greek, Cyrillic and many symbols) or Helvetica (smaller files, Western European characters only).</li>
+      <li><strong>Accent color</strong> — used for titles and table headers.</li>
+      <li><strong>Customer downloads</strong> — a download button in My Account once an invoice exists.</li>
+      <li><strong>Guest downloads</strong> and <strong>guest link lifetime</strong> — signed links on the order received page and in the order tracking result.</li>
+    </ul>
+
+    <h2 id="store">Store Details</h2>
+    <p>Logo and logo height, store name, address, email, phone, website, tax ID label and number, and extra lines such as a company registration number or bank details.</p>
+
+    <h2 id="invoice">Invoice</h2>
+    <ul>
+      <li><strong>Template</strong> — Classic or Modern (Pro adds Elegant and Compact), with preview links.</li>
+      <li><strong>Number prefix / suffix</strong> — supports <code>{Y}</code>, <code>{y}</code>, <code>{m}</code>, <code>{d}</code> of the invoice date. <strong>Minimum digits</strong> pads the number with zeros.</li>
+      <li><strong>Next invoice number</strong> — can only be moved forward; see <a href="numbering.htm">Invoice numbering</a>.</li>
+      <li><strong>Date format</strong> — empty uses the WordPress date format.</li>
+      <li><strong>Item prices</strong> — excluding tax (with a tax column) or including tax.</li>
+      <li><strong>Show on the invoice</strong> — shipping address, email, phone, SKU, variation details, payment method, shipping method, customer note, refunds.</li>
+      <li><strong>Notes / terms</strong> and <strong>Footer</strong> — plain text; the footer is printed on every page.</li>
+    </ul>
+
+    <h2 id="slip">Packing Slip</h2>
+    <p>Title, optional billing address, email, phone, SKU, variation details, product weight, shipping method, customer note and footer. Packing slips never show prices, taxes or payment data.</p>
+
+    <h2 id="email">Email</h2>
+    <ul>
+      <li><strong>Automatic invoices</strong> and the statuses that issue them.</li>
+      <li><strong>Invoices allowed for</strong> — an invoice number is only ever issued for these statuses. Failed and cancelled orders are excluded unless you add them.</li>
+      <li><strong>Attach the invoice to</strong> / <strong>Attach the packing slip to</strong> — choose WooCommerce emails.</li>
+    </ul>
+
+    <h2 id="advanced">Advanced</h2>
+    <ul>
+      <li><strong>Debug log</strong> — writes to WooCommerce &gt; Status &gt; Logs (no customer data).</li>
+      <li><strong>Delete all data on uninstall</strong> — off by default; invoice numbers are accounting records.</li>
+      <li><strong>Reset to defaults</strong> — restores the settings; issued invoices and numbers are kept.</li>
+    </ul>
+
+    <h2 id="register">Invoice Register</h2>
+    <p>Lists every issued number with its order, date and who issued it — also numbers of orders that were deleted later. Search by number or order ID.</p>
+
+    <div class="next-prev">
+      <a class="prev" href="getting-started.htm"><small>Previous</small><b>← Getting started</b></a><a class="next" href="numbering.htm"><small>Next</small><b>Invoice numbering →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

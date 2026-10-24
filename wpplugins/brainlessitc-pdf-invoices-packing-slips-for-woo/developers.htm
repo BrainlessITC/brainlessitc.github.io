@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developers — BrainlessITC PDF Invoices &amp; Packing Slips for Woo</title>
+<meta name="description" content="Template overrides, hooks and functions.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../../" aria-label="brainlessitc home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../../">Home</a></li>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>BrainlessITC PDF Invoices</b><span>&amp; Packing Slips for Woo · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="numbering.htm">Invoice numbering</a></li>
+      <li><a href="documents.htm">Orders, emails &amp; downloads</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+      <li><a href="developers.htm" aria-current="page">Developers</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">BrainlessITC PDF Invoices</a> / Developers</div>
+    <h1>Developers</h1>
+    <p class="lead">Template overrides, hooks and functions.</p>
+
+    <h2 id="templates">Template overrides</h2>
+    <p>Copy a template from the plugin's <code>templates/</code> folder to your theme, keeping the path:</p>
+    <pre><code>yourtheme/brainlessitc-pdf-invoices-packing-slips-for-woo/invoice/classic.php
+yourtheme/brainlessitc-pdf-invoices-packing-slips-for-woo/invoice/modern.php
+yourtheme/brainlessitc-pdf-invoices-packing-slips-for-woo/packing-slip/default.php</code></pre>
+    <p>Templates receive a prepared <code>$data</code> array. Text values are plain text (escape with <code>esc_html()</code>); keys ending in <code>_html</code> contain WooCommerce price/address HTML (print with <code>wp_kses_post()</code>).</p>
+
+    <h2 id="filters">Filters</h2>
+    <ul>
+      <li><code>bitcpdf_document_types</code> — register document types (extend <code>BrainlessITC\PdfInvoices\Documents\Document</code>).</li>
+      <li><code>bitcpdf_invoice_templates</code> — add invoice layouts.</li>
+      <li><code>bitcpdf_template_data</code>, <code>bitcpdf_document_item</code>, <code>bitcpdf_document_totals</code>, <code>bitcpdf_document_css</code> — change what is printed.</li>
+      <li><code>bitcpdf_number_series</code>, <code>bitcpdf_formatted_number</code>, <code>bitcpdf_can_issue_invoice</code> — numbering.</li>
+      <li><code>bitcpdf_document_filename</code>, <code>bitcpdf_email_options</code>, <code>bitcpdf_skip_email_attachments</code>, <code>bitcpdf_admin_capability</code>, <code>bitcpdf_bulk_limit</code>, <code>bitcpdf_dompdf_options</code>.</li>
+      <li><code>bitcpdf_settings_tabs</code>, <code>bitcpdf_settings_fields</code> — add settings for add-ons.</li>
+    </ul>
+
+    <h2 id="actions">Actions</h2>
+    <ul>
+      <li><code>bitcpdf_loaded</code>, <code>bitcpdf_document_issued</code>, <code>bitcpdf_pdf_generated</code>.</li>
+      <li><code>bitcpdf_order_meta_box_after</code>, <code>bitcpdf_settings_after_form</code>.</li>
+      <li><code>bitcpdf_template_before_items</code>, <code>bitcpdf_template_item_after_meta</code>, <code>bitcpdf_template_after_totals</code> — template hooks (escape your output).</li>
+    </ul>
+
+    <h2 id="functions">Functions</h2>
+    <pre><code>bitcpdf_get_invoice_number( $order );            // '' when no invoice was issued
+bitcpdf_get_admin_document_url( 'invoice', array( $order_id ) );</code></pre>
+
+    <h2 id="data">Data</h2>
+    <p>Issued numbers are stored in <code>{prefix}bitcpdf_documents</code> (unique keys on series + number and on document type + order + reference) and counters in <code>{prefix}bitcpdf_sequences</code>. A copy of the invoice number is stored on the order as <code>_bitcpdf_invoice_number</code>. Settings are in the option <code>bitcpdf_settings</code>.</p>
+
+    <div class="next-prev">
+      <a class="prev" href="faq.htm"><small>Previous</small><b>← FAQ &amp; support</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

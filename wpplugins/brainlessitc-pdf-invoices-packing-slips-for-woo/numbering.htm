@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice numbering — BrainlessITC PDF Invoices &amp; Packing Slips for Woo</title>
+<meta name="description" content="Invoice numbers are accounting records. This page explains exactly how they are issued and why they can never be duplicated.">
+<link rel="icon" href="images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="logo" href="../../" aria-label="brainlessitc home">
+      <svg class="mark" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#7C5CFF" stroke-width="1.6"/><path d="M8 13h3l1.5-4 3 8 1.5-4h1" stroke="#3DDC97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span><span class="strike">brainless</span>itc</span><span class="section">/ WordPress plugins</span>
+    </a>
+    <ul>
+      <li><a href="../../">Home</a></li>
+      <li><a href="../#plugins">Plugins</a></li>
+      <li><a href="./">Docs</a></li>
+      <li><a href="pro.htm">Pro</a></li>
+      <li><a href="faq.htm#support">Support</a></li>
+    </ul>
+    <a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" class="nav-cta" target="_blank" rel="noopener">Get it free</a>
+  </div>
+</nav>
+
+<div class="wrap docs">
+  <aside class="sidebar" aria-label="Documentation">
+    <div class="plugin-id"><img src="images/icon.png" alt="" width="44" height="44"><div><b>BrainlessITC PDF Invoices</b><span>&amp; Packing Slips for Woo · v1.0.0</span></div></div>
+    <h4>Guide</h4>
+    <ul>
+      <li><a href="./">Overview</a></li>
+      <li><a href="getting-started.htm">Getting started</a></li>
+      <li><a href="settings.htm">Settings</a></li>
+      <li><a href="numbering.htm" aria-current="page">Invoice numbering</a></li>
+      <li><a href="documents.htm">Orders, emails &amp; downloads</a></li>
+    </ul>
+    <h4>Pro</h4>
+    <ul>
+      <li><a href="pro.htm">Pro add-on</a></li>
+    </ul>
+    <h4>Reference</h4>
+    <ul>
+      <li><a href="faq.htm">FAQ &amp; support</a></li>
+      <li><a href="developers.htm">Developers</a></li>
+    </ul>
+    <div class="side-cta">Free on WordPress.org.<br><a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" target="_blank" rel="noopener">Download the plugin ↗</a></div>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../">WordPress plugins</a> / <a href="./">BrainlessITC PDF Invoices</a> / Invoice numbering</div>
+    <h1>Invoice numbering</h1>
+    <p class="lead">Invoice numbers are accounting records. This page explains exactly how they are issued and why they can never be duplicated.</p>
+
+    <h2 id="when">When is a number issued?</h2>
+    <p>Only when an invoice is first needed, and only for orders with an allowed status:</p>
+    <ul>
+      <li>automatically when the order reaches one of the <em>Issue automatically on</em> statuses,</li>
+      <li>when the invoice is attached to an email,</li>
+      <li>when an admin or shop manager opens the invoice (single or bulk).</li>
+    </ul>
+    <p>Customers never trigger a number: they can only download invoices that already exist. Previews never issue a number.</p>
+
+    <h2 id="safe">How duplicates are prevented</h2>
+    <ol class="steps">
+      <li>Every issued number is a row in the invoice register (its own database table).</li>
+      <li>Issuing runs in a database transaction that first locks the number sequence, so simultaneous requests (for example an email and an admin click at the same moment) wait for each other.</li>
+      <li>Inside the lock the plugin checks again whether the order already has an invoice, then saves the invoice and increases the counter in the same transaction.</li>
+      <li>Unique database keys guarantee that a number exists only once and that an order gets only one invoice.</li>
+    </ol>
+    <p>We tested this with 12 processes issuing invoices for the same orders at the same time: every order got exactly one number, with no duplicates and no gaps.</p>
+
+    <h2 id="never-changes">Numbers never change</h2>
+    <p>The number and the invoice date are fixed when the invoice is issued. Changing the prefix, suffix or date format later only affects new invoices. If creating a PDF fails, the order keeps its number and the next attempt uses the same one.</p>
+
+    <h2 id="gaps">Gaps</h2>
+    <p>Numbers are never re-used. A gap appears only when you move the next number forward or when an order with an invoice was deleted — the <em>Invoice Register</em> still lists that number with "order deleted".</p>
+
+    <h2 id="next">Changing the next number</h2>
+    <p>The <em>Next invoice number</em> can only be set higher than every number already issued. Use it to continue the sequence of a previous system.</p>
+
+    <h2 id="refunds">Refunds and cancellations</h2>
+    <p>An issued invoice keeps its number, date and original total. Refunds are listed below the total together with the net amount. Credit notes for refunds are available in the <a href="pro.htm">Pro add-on</a>.</p>
+
+    <div class="next-prev">
+      <a class="prev" href="settings.htm"><small>Previous</small><b>← Settings</b></a><a class="next" href="documents.htm"><small>Next</small><b>Orders, emails &amp; downloads →</b></a>
+    </div>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 brainlessitc</span>
+    <span><a href="../">WordPress plugins</a> · <a href="https://wordpress.org/plugins/brainlessitc-pdf-invoices-packing-slips-for-woo/" target="_blank" rel="noopener">WordPress.org</a> · <a href="faq.htm#support">Support</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
